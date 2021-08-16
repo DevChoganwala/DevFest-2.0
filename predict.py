@@ -20,5 +20,3 @@ def predict_output(f):
     image = cv2.rectangle(img[0],(x1,y1),(x2,y2),(0, 255, 0))
     image = image*255
     cv2.imwrite('uploads/result.png',image)
-
-#predict_output('/Users/krishma/Downloads/download.png')
