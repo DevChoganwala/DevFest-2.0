@@ -18,7 +18,7 @@ def sanitary_check(stream):
     file_format = imghdr.what(None, header)
     if not file_format:
         return None
-    return '.' + (file_format)# if file_format != 'jpeg' else 'jpg')
+    return '.' + (file_format)
 
 
 def delete_previous_files(files):
@@ -46,7 +46,6 @@ def file_upload():
         if file_path not in app.config['EXTENSIONS_ALLOWED'] or \
                 file_path != sanitary_check(submitted_file.stream):
             return redirect(url_for('index'))
-            #abort(400)
         files = os.listdir(app.config['DIRECTORY_PATH'])
         delete_previous_files(files)
         submitted_file.save(os.path.join(app.config['DIRECTORY_PATH'], filename))
